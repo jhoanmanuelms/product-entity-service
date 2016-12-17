@@ -30,7 +30,7 @@ The SOAP protocol for Product Entity Service follow this specification:<br />
 **Design:**<br /> ![SOAP Diagram](documentation/diagrams/SOAP.png)<br/>
 **Receives:** XML<br />
 **Produces:** XML<br />
-**Contract:** [src/main/resources/META-INF/product/ProductEntityService.wsdl](product-entity-service-ejb/src/main/resources/META-INF/wsdl/ProductEntityService.wsdl)<br />
+**Contract:** [src/main/resources/META-INF/pes/wsdl/ProductEntityService.wsdl](product-entity-service-ejb/src/main/resources/META-INF/pes/wsdl/ProductEntityService.wsdl)<br />
 
 
 #### REST

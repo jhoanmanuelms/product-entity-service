@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://jmunoz.com/inventory/schema/productType"
+        targetNamespace="http://jmunoz.com/inventory/schema/productType"
+        attributeFormDefault="unqualified">
+    <annotation>
+        <documentation>
+            This data type represents a product from the inventory
+        </documentation>
+    </annotation>
+
+    <!-- Product Entity Type Definition -->
+    <complexType name="ProductType">
+        <sequence>
+            <element name="code" type="string"/>
+            <element name="name" type="string" />
+            <element name="description" type="string" />
+            <element name="fabricationDate" type="date" />
+            <element name="expirationDate" type="date" />
+            <element name="lotNumber" type="integer" />
+        </sequence>
+    </complexType>
+
+    <!-- Capabilities -->
+    <!-- Create Product -->
+    <element name="CreateProductRequestType">
+        <complexType>
+            <sequence>
+                <element name="product" type="tns:ProductType" />
+            </sequence>
+        </complexType>
+    </element>
+    <element name="CreateProductResponseType">
+        <complexType>
+            <sequence>
+                <element name="status" type="string" />
+            </sequence>
+        </complexType>
+    </element>
+
+    <!-- Update Product -->
+    <element name="UpdateProductRequestType">
+        <complexType>
+            <sequence>
+                <element name="product" type="tns:ProductType" />
+            </sequence>
+        </complexType>
+    </element>
+    <element name="UpdateProductResponseType">
+        <complexType>
+            <sequence>
+                <element name="status" type="string" />
+            </sequence>
+        </complexType>
+    </element>
+
+    <!-- Get Product -->
+    <element name="GetProductRequestType">
+        <complexType>
+            <sequence>
+                <element name="code" type="tns:ProductType" />
+            </sequence>
+        </complexType>
+    </element>
+    <element name="GetProductResponseType">
+        <complexType>
+            <sequence>
+                <element name="product" type="tns:ProductType" />
+            </sequence>
+        </complexType>
+    </element>
+
+    <!-- Delete Product -->
+    <element name="DeleteProductRequestType">
+        <complexType>
+            <sequence>
+                <element name="code" type="tns:ProductType" />
+            </sequence>
+        </complexType>
+    </element>
+    <element name="DeleteProductResponseType">
+        <complexType>
+            <sequence>
+                <element name="status" type="string" />
+            </sequence>
+        </complexType>
+    </element>
+</schema>
