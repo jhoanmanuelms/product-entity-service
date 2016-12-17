@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ProductEntityService"
+                  targetNamespace="http://jmunoz.com/inventory/schema/productEntityService"
+                  xmlns="http://www.w3.org/2001/XMLSchema"
+                  xmlns:product="http://jmunoz.com/inventory/schema/productType"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://jmunoz.com/inventory/schema/productEntityService"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+
+    <!-- Import Types Definitions -->
+    <wsdl:types>
+        <schema targetNamespace="http://jmunoz.com">
+            <import namespace="http://jmunoz.com/inventory/schema/productType"
+                    schemaLocation="entity/Product.xsd" />
+        </schema>
+    </wsdl:types>
+
+    <!-- Define Operations I/O Messages -->
+    <wsdl:message name="CreateProductMsgRequest">
+        <wsdl:part name="parameters" element="product:CreateProductRequestType" />
+    </wsdl:message>
+    <wsdl:message name="CreateProductMsgResponse">
+        <wsdl:part name="parameters" element="product:CreateProductResponseType" />
+    </wsdl:message>
+    <wsdl:message name="UpdateProductMsgRequest">
+        <wsdl:part name="parameters" element="product:UpdateProductRequestType" />
+    </wsdl:message>
+    <wsdl:message name="UpdateProductMsgResponse">
+        <wsdl:part name="parameters" element="product:UpdateProductResponseType" />
+    </wsdl:message>
+    <wsdl:message name="GetProductMsgRequest">
+        <wsdl:part name="parameters" element="product:GetProductRequestType" />
+    </wsdl:message>
+    <wsdl:message name="GetProductMsgResponse">
+        <wsdl:part name="parameters" element="product:GetProductResponseType" />
+    </wsdl:message>
+    <wsdl:message name="DeleteProductMsgRequest">
+        <wsdl:part name="parameters" element="product:DeleteProductRequestType" />
+    </wsdl:message>
+    <wsdl:message name="DeleteProductMsgResponse">
+        <wsdl:part name="parameters" element="product:DeleteProductResponseType" />
+    </wsdl:message>
+
+    <!-- Port Type Definition -->
+    <wsdl:portType name="IProduct">
+        <wsdl:operation name="createProduct">
+            <wsdl:input message="CreateProductMsgRequest"/>
+            <wsdl:output message="CreateProductMsgResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="updateProduct">
+            <wsdl:input message="UpdateProductMsgRequest"/>
+            <wsdl:output message="UpdateProductMsgResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="getProduct">
+            <wsdl:input message="GetProductMsgRequest"/>
+            <wsdl:output message="GetProductMsgResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="deleteProduct">
+            <wsdl:input message="DeleteProductMsgRequest"/>
+            <wsdl:output message="DeleteProductMsgResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <!-- Port Type Contract And SOAP Bindings -->
+    <wsdl:binding name="ProductBinding" type="tns:IProduct">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"
+                      style="document"/>
+        <wsdl:operation name="createProduct">
+            <soap:operation soapAction="http://jmunoz.com/createProduct"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="updateProduct">
+            <soap:operation soapAction="http://jmunoz.com/updateProduct"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getProduct">
+            <soap:operation soapAction="http://jmunoz.com/getProduct"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="deleteProduct">
+            <soap:operation soapAction="http://jmunoz.com/deleteProduct"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <!-- Service Configuration -->
+    <wsdl:service name="ProductEntityService">
+        <wsdl:port name="ProductPort" binding="tns:ProductBinding">
+            <soap:address location="http://localhost:8080/ProductEntityService/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
