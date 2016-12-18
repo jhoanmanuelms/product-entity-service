@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="file:/E:/TESTING/SOA/Lab/product-entity-service/product-entity-service-ejb/src/main/resources/META-INF/wsdl/ProductEntityService.wsdl" uri="src/main/resources/jaxb/pes-ejb-jaxb-binding/ProductEntityService.wsdl"/>
-    <system systemId="file:/E:/TESTING/SOA/Lab/product-entity-service/product-entity-service-ejb/src/main/resources/META-INF/pes/entity/Product.xsd" uri="src/main/resources/jaxb/pes-jeb-jabx/Product.xsd"/>
-</catalog>

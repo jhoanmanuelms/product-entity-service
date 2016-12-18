@@ -15,6 +15,6 @@ Any value defined here will override the pom.xml file value but is only applicab
 -->
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>1.7</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_j2eeVersion>
         <org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>gfv3ee6</org-netbeans-modules-maven-j2ee.netbeans_2e_hint_2e_deploy_2e_server>
-        <org-netbeans-modules-maven-jaxws._5f_S_5f_ProductEntityService>file:/E:/TESTING/SOA/Lab/product-entity-service/product-entity-service-ejb/src/main/resources/META-INF/pes/wsdl/ProductEntityService.wsdl</org-netbeans-modules-maven-jaxws._5f_S_5f_ProductEntityService>
+        <org-netbeans-modules-maven-jaxws._5f_S_5f_ProductEntityService>file:/E:/TESTING/SOA/Lab/product-entity-service/product-entity-service-ejb/src/main/resources/META-INF/ProductEntityService.wsdl</org-netbeans-modules-maven-jaxws._5f_S_5f_ProductEntityService>
     </properties>
 </project-shared-configuration>

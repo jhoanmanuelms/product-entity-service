@@ -58,7 +58,7 @@
     <element name="GetProductRequestType">
         <complexType>
             <sequence>
-                <element name="code" type="tns:ProductType" />
+                <element name="code" type="string" />
             </sequence>
         </complexType>
     </element>
@@ -74,7 +74,7 @@
     <element name="DeleteProductRequestType">
         <complexType>
             <sequence>
-                <element name="code" type="tns:ProductType" />
+                <element name="code" type="string" />
             </sequence>
         </complexType>
     </element>

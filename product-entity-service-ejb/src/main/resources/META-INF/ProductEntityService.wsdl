@@ -11,7 +11,7 @@
     <wsdl:types>
         <schema targetNamespace="http://jmunoz.com">
             <import namespace="http://jmunoz.com/inventory/schema/productType"
-                    schemaLocation="../entity/Product.xsd" />
+                    schemaLocation="Product.xsd" />
         </schema>
     </wsdl:types>
 

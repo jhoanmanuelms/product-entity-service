@@ -30,19 +30,19 @@ The SOAP protocol for Product Entity Service follow this specification:<br />
 **Design:**<br /> ![SOAP Diagram](documentation/diagrams/SOAP.png)<br/>
 **Receives:** XML<br />
 **Produces:** XML<br />
-**Contract:** [src/main/resources/META-INF/pes/wsdl/ProductEntityService.wsdl](product-entity-service-ejb/src/main/resources/META-INF/pes/wsdl/ProductEntityService.wsdl)<br />
+**Contract:** [product-entity-service-ejb/src/main/resources/META-INF/ProductEntityService.wsdl](product-entity-service-ejb/src/main/resources/META-INF/ProductEntityService.wsdl)<br />
 
 
 #### REST
 The REST protocol for Product Entity Service follow this specification:<br />
 **Design:**<br /> ![REST Diagram](documentation/diagrams/REST.png) <br/>
-**Receives:** XML based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/pes/entity/Product.xsd)<br/>
-**Produces:** XML<br />
+**Receives:** JSON based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/Product.xsd)<br/>
+**Produces:** JSON<br />
 **Contract:** <br />
 
 OP | HTTP Method | Path | Request Body
 ---|-------------|------|-------------
-C |POST | /product | XML based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/pes/entity/Product.xsd)
+C |POST | /product | JSON based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/Product.xsd)
 R |GET | /product/{id} | None
-U |PUT | /product | XML based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/pes/entity/Product.xsd)
+U |PUT | /product | JSON based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/Product.xsd)
 D |DELETE | /product/{id} | None
