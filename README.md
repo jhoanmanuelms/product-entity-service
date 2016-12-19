@@ -46,3 +46,9 @@ C |POST | /product | JSON based on [Product XSD](product-entity-service-ejb/src/
 R |GET | /product/{id} | None
 U |PUT | /product | JSON based on [Product XSD](product-entity-service-ejb/src/main/resources/META-INF/Product.xsd)
 D |DELETE | /product/{id} | None
+
+### TOOLS
+* Maven
+* Netbeans IDE 8.2
+* GlassFish Server 4.1.1
+* Jersey-bundle 1.19
