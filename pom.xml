@@ -5,10 +5,12 @@
     <artifactId>product-entity-service</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+    <name>product-entity-service</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
   <modules>
     <module>product-entity-service-ejb</module>
+    <module>product-entity-service-rest</module>
   </modules>
 </project>

@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * Entity class to represent a product.
@@ -19,6 +20,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(name = "Product.getByCode", query = "SELECT p FROM Product p WHERE p.code = :request")
 })
+@XmlRootElement
 public class Product implements Serializable
 {
     public static final String GET_BY_CODE_NQ = "Product.getByCode";

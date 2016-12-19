@@ -10,6 +10,7 @@ import static com.jmunoz.pes.ejb.persistence.util.ProductResponseGenerator.asDat
 import com.jmunoz.pes.ejb.persistence.entity.Product;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.ejb.Stateless;
 
 /**
  * Mock implementation for {@link IProductDAO} which will always retrieve a mock
@@ -18,6 +19,7 @@ import java.time.Month;
  *
  * @author jmunoz
  */
+@Stateless
 public class MockProductDAO implements IProductDAO
 {
 
