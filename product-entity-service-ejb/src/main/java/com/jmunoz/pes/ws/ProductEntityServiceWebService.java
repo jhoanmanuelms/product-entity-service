@@ -5,6 +5,17 @@
  */
 package com.jmunoz.pes.ws;
 
+import com.jmunoz.inventory.schema.producttype.CreateProductRequestType;
+import com.jmunoz.inventory.schema.producttype.CreateProductResponseType;
+import com.jmunoz.inventory.schema.producttype.DeleteProductRequestType;
+import com.jmunoz.inventory.schema.producttype.DeleteProductResponseType;
+import com.jmunoz.inventory.schema.producttype.GetProductRequestType;
+import com.jmunoz.inventory.schema.producttype.GetProductResponseType;
+import com.jmunoz.inventory.schema.producttype.UpdateProductRequestType;
+import com.jmunoz.inventory.schema.producttype.UpdateProductResponseType;
+import com.jmunoz.pes.ejb.persistence.dao.IProductDAO;
+import com.jmunoz.pes.ejb.persistence.dao.MockProductDAO;
+import com.jmunoz.pes.ejb.persistence.util.ProductResponseGenerator;
 import javax.ejb.Stateless;
 import javax.jws.WebService;
 
@@ -14,26 +25,45 @@ import javax.jws.WebService;
  */
 @WebService(serviceName = "ProductEntityService", portName = "ProductPort", endpointInterface = "com.jmunoz.inventory.schema.productentityservice.IProduct", targetNamespace = "http://jmunoz.com/inventory/schema/productEntityService", wsdlLocation = "META-INF/wsdl/ProductEntityService.wsdl")
 @Stateless
-public class ProductEntityServiceWebService {
-
-    public com.jmunoz.inventory.schema.producttype.CreateProductResponseType createProduct(com.jmunoz.inventory.schema.producttype.CreateProductRequestType parameters) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+public class ProductEntityServiceWebService 
+{
+    public CreateProductResponseType createProduct(CreateProductRequestType parameters)
+    {
+        CreateProductResponseType response = new CreateProductResponseType();
+        String status = new MockProductDAO().createProduct(
+            ProductResponseGenerator.productTypeToProduct(parameters.getProduct()));
+        response.setStatus(status);
+        
+        return response;
     }
 
-    public com.jmunoz.inventory.schema.producttype.UpdateProductResponseType updateProduct(com.jmunoz.inventory.schema.producttype.UpdateProductRequestType parameters) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+    public UpdateProductResponseType updateProduct(UpdateProductRequestType parameters)
+    {
+        UpdateProductResponseType response = new UpdateProductResponseType();
+        String status = new MockProductDAO().updateProduct(
+            ProductResponseGenerator.productTypeToProduct(parameters.getProduct()));
+        response.setStatus(status);
+        
+        return response;
     }
 
-    public com.jmunoz.inventory.schema.producttype.GetProductResponseType getProduct(com.jmunoz.inventory.schema.producttype.GetProductRequestType parameters) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+    public GetProductResponseType getProduct(GetProductRequestType parameters)
+    {
+        String code = parameters.getCode();
+        IProductDAO productDAO = new MockProductDAO();
+
+        return 
+            ProductResponseGenerator
+                .getResponseFromProduct(productDAO.getProduct(code));
     }
 
-    public com.jmunoz.inventory.schema.producttype.DeleteProductResponseType deleteProduct(com.jmunoz.inventory.schema.producttype.DeleteProductRequestType parameters) {
-        //TODO implement this method
-        throw new UnsupportedOperationException("Not implemented yet.");
+    public DeleteProductResponseType deleteProduct(DeleteProductRequestType parameters)
+    {
+        DeleteProductResponseType response = new DeleteProductResponseType();
+        String status = new MockProductDAO().deleteProduct(parameters.getCode());
+        response.setStatus(status);
+        
+        return response;
     }
     
 }

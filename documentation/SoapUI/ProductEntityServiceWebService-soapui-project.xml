@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4c10ecf6-1d17-4ff8-b94d-8f416ad31c7c" activeEnvironment="Default" name="ProductEntityServiceWebService" soapui-version="5.3.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e3a23990-fc5c-44ff-9bd6-5343aeff223e" wsaVersion="NONE" name="ProductBinding" type="wsdl" bindingName="{http://jmunoz.com/inventory/schema/productEntityService}ProductBinding" soapVersion="1_1" anonymous="optional" definition="http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService?wsdl"><con:part><con:url>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService?wsdl</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<wsdl:definitions name="IProductEntityService" targetNamespace="http://jmunoz.com/inventory/schema/productEntityService" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:product="http://jmunoz.com/inventory/schema/productType" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://jmunoz.com/inventory/schema/productEntityService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <!--Import Types Definitions-->
+  <wsdl:types>
+    <schema targetNamespace="http://jmunoz.com">
+      <import namespace="http://jmunoz.com/inventory/schema/productType" schemaLocation="http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService?xsd=1"/>
+    </schema>
+  </wsdl:types>
+  <!--Define Operations I/O Messages-->
+  <wsdl:message name="CreateProductMsgRequest">
+    <wsdl:part name="parameters" element="product:CreateProductRequestType"/>
+  </wsdl:message>
+  <wsdl:message name="CreateProductMsgResponse">
+    <wsdl:part name="parameters" element="product:CreateProductResponseType"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateProductMsgRequest">
+    <wsdl:part name="parameters" element="product:UpdateProductRequestType"/>
+  </wsdl:message>
+  <wsdl:message name="UpdateProductMsgResponse">
+    <wsdl:part name="parameters" element="product:UpdateProductResponseType"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductMsgRequest">
+    <wsdl:part name="parameters" element="product:GetProductRequestType"/>
+  </wsdl:message>
+  <wsdl:message name="GetProductMsgResponse">
+    <wsdl:part name="parameters" element="product:GetProductResponseType"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductMsgRequest">
+    <wsdl:part name="parameters" element="product:DeleteProductRequestType"/>
+  </wsdl:message>
+  <wsdl:message name="DeleteProductMsgResponse">
+    <wsdl:part name="parameters" element="product:DeleteProductResponseType"/>
+  </wsdl:message>
+  <!--Port Type Definition-->
+  <wsdl:portType name="IProduct">
+    <wsdl:operation name="createProduct">
+      <wsdl:input message="tns:CreateProductMsgRequest"/>
+      <wsdl:output message="tns:CreateProductMsgResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateProduct">
+      <wsdl:input message="tns:UpdateProductMsgRequest"/>
+      <wsdl:output message="tns:UpdateProductMsgResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <wsdl:input message="tns:GetProductMsgRequest"/>
+      <wsdl:output message="tns:GetProductMsgResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProduct">
+      <wsdl:input message="tns:DeleteProductMsgRequest"/>
+      <wsdl:output message="tns:DeleteProductMsgResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--Port Type Contract And SOAP Bindings-->
+  <wsdl:binding name="ProductBinding" type="tns:IProduct">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <wsdl:operation name="createProduct">
+      <soap:operation soapAction="http://jmunoz.com/createProduct"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateProduct">
+      <soap:operation soapAction="http://jmunoz.com/updateProduct"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <soap:operation soapAction="http://jmunoz.com/getProduct"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteProduct">
+      <soap:operation soapAction="http://jmunoz.com/deleteProduct"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--Service Configuration-->
+  <wsdl:service name="ProductEntityService">
+    <wsdl:port name="ProductPort" binding="tns:ProductBinding">
+      <soap:address location="http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService?xsd=1</con:url><con:content><![CDATA[<!--Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown.-->
+<schema targetNamespace="http://jmunoz.com/inventory/schema/productType" attributeFormDefault="unqualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://jmunoz.com/inventory/schema/productType">
+  <annotation>
+    <documentation>This data type represents a product from the inventory</documentation>
+  </annotation>
+  <!--Product Entity Type Definition-->
+  <complexType name="ProductType">
+    <sequence>
+      <element name="code" type="string"/>
+      <element name="name" type="string"/>
+      <element name="description" type="string"/>
+      <element name="fabricationDate" type="date"/>
+      <element name="expirationDate" type="date"/>
+      <element name="lotNumber" type="integer"/>
+    </sequence>
+  </complexType>
+  <!--Capabilities-->
+  <!--Create Product-->
+  <element name="CreateProductRequestType">
+    <complexType>
+      <sequence>
+        <element name="product" type="tns:ProductType"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="CreateProductResponseType">
+    <complexType>
+      <sequence>
+        <element name="status" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <!--Update Product-->
+  <element name="UpdateProductRequestType">
+    <complexType>
+      <sequence>
+        <element name="product" type="tns:ProductType"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="UpdateProductResponseType">
+    <complexType>
+      <sequence>
+        <element name="status" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <!--Get Product-->
+  <element name="GetProductRequestType">
+    <complexType>
+      <sequence>
+        <element name="code" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="GetProductResponseType">
+    <complexType>
+      <sequence>
+        <element name="product" type="tns:ProductType"/>
+      </sequence>
+    </complexType>
+  </element>
+  <!--Delete Product-->
+  <element name="DeleteProductRequestType">
+    <complexType>
+      <sequence>
+        <element name="code" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="DeleteProductResponseType">
+    <complexType>
+      <sequence>
+        <element name="status" type="string"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService</con:endpoint></con:endpoints><con:operation id="b5ffc9c3-f57d-47d3-b9dd-fb387020838b" isOneWay="false" action="http://jmunoz.com/createProduct" name="createProduct" bindingOperationName="createProduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6bf441ac-3563-4740-a506-775937a8883d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:prod="http://jmunoz.com/inventory/schema/productType">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <prod:CreateProductRequestType>\r
+         <product>\r
+            <code>ABC-00002</code>\r
+            <name>Eraseble Marker 425</name>\r
+            <description>Blue marker for use on white boards</description>\r
+            <fabricationDate>2015-09-15</fabricationDate>\r
+            <expirationDate>2020-09-15</expirationDate>\r
+            <lotNumber>2</lotNumber>\r
+         </product>\r
+      </prod:CreateProductRequestType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://jmunoz.com/createProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="867f8a93-0917-46d0-9756-43db7146577a" isOneWay="false" action="http://jmunoz.com/deleteProduct" name="deleteProduct" bindingOperationName="deleteProduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ab26167f-4aa9-421b-b98d-e4a94576b558" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:prod="http://jmunoz.com/inventory/schema/productType">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <prod:DeleteProductRequestType>\r
+         <code>ABC-00002</code>\r
+      </prod:DeleteProductRequestType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://jmunoz.com/deleteProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="07935e41-f2da-44e2-9440-98fb98daa68e" isOneWay="false" action="http://jmunoz.com/getProduct" name="getProduct" bindingOperationName="getProduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1cbd87cb-e00d-4c42-9819-6c8a6c64d9e2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:prod="http://jmunoz.com/inventory/schema/productType">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <prod:GetProductRequestType>\r
+         <code>ABC-00002</code>\r
+      </prod:GetProductRequestType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://jmunoz.com/getProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="33b4d731-967f-44bc-aae4-df5e683d4df1" isOneWay="false" action="http://jmunoz.com/updateProduct" name="updateProduct" bindingOperationName="updateProduct" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4d55722d-e8ed-45cc-87cd-18214d1d5160" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://jmunoz-pc:41111/ProductEntityService/ProductEntityServiceWebService</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:prod="http://jmunoz.com/inventory/schema/productType">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <prod:UpdateProductRequestType>\r
+         <product>\r
+            <code>ABC-00002</code>
+            <name>Eraseble Marker 425</name>
+            <description>Blue marker for use on white boards</description>
+            <fabricationDate>2016-09-15</fabricationDate>
+            <expirationDate>2021-09-15</expirationDate>
+            <lotNumber>3</lotNumber>
+         </product>\r
+      </prod:UpdateProductRequestType>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://jmunoz.com/updateProduct"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -8,6 +8,7 @@ package com.jmunoz.pes.ejb.persistence.dao;
 import static com.jmunoz.pes.ejb.persistence.dao.IProductDAO.SUCCESFUL_OPERATION;
 
 import com.jmunoz.pes.ejb.persistence.entity.Product;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -21,23 +22,28 @@ import javax.persistence.Query;
 @Stateless
 public class ProductDAO implements IProductDAO
 {
-    private static final String INVENTORY_DS_ID = "InventoryDS";
+    private static final String INVENTORY_DS_ID = "PES_JPA";
 
     private final EntityManagerFactory emfactory;
-    private final EntityManager emanager;
+    private final EntityManager entityManager;
 
     public ProductDAO()
     {
         emfactory = Persistence.createEntityManagerFactory(INVENTORY_DS_ID);
-        emanager = emfactory.createEntityManager();
+        entityManager = emfactory.createEntityManager();
     }
  
     @Override
     public Product getProduct(String code)
     {
         Query query =
-            emanager.createNamedQuery(Product.GET_BY_CODE_NQ, Product.class);
-        return (Product)query.getSingleResult();
+            entityManager
+                .createNamedQuery(Product.GET_BY_CODE_NQ, Product.class)
+                .setParameter(Product.PRMTR_WILDCARD, "'" + code + "'");
+        System.out.println("code" + code + " query -> " + query.toString());
+        List<Object> products = query.getResultList();
+
+        return products.isEmpty() ? null : (Product)products.get(0);
     }
 
     @Override

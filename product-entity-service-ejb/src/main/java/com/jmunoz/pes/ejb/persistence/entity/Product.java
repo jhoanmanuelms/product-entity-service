@@ -17,11 +17,12 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "product")
 @NamedQueries({
-    @NamedQuery(name = "Product.getByCode", query = "SELECT * FROM product WHERE code = :request")
+    @NamedQuery(name = "Product.getByCode", query = "SELECT p FROM Product p WHERE p.code = :request")
 })
 public class Product implements Serializable
 {
     public static final String GET_BY_CODE_NQ = "Product.getByCode";
+    public static final String PRMTR_WILDCARD = "request";
 
     private static final long serialVersionUID = 1L;
 
@@ -35,13 +36,13 @@ public class Product implements Serializable
     @Column(name = "description")
     private String description;
     
-    @Column(name = "fabricationDate")
+    @Column(name = "fabricationdate")
     private Date fabricationDate;
     
-    @Column(name = "expirationDate")
+    @Column(name = "expirationdate")
     private Date expirationDate;
     
-    @Column(name = "lotNumber")
+    @Column(name = "lotnumber")
     private Integer lotNumber;
 
     public String getCode() {
